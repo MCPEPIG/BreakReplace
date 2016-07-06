@@ -1,0 +1,19 @@
+name: BreakReplace
+main: BreakReplace\Main
+version: 1.0.0 BETA
+api: 2.0.0
+author: MCPEPIG
+load: STARTUP
+
+permissions:
+ breakreplace:
+  default: op
+  description: "Allows using all BreakReplace features" 
+  children:
+    breakreplace.command:
+      default: op
+      description: "BreakReplace commands"
+      children:
+        breakreplace.command.breakreplace:
+          default: true
+          description: "Allow using /breakreplace"
