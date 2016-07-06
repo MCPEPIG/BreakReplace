@@ -13,6 +13,12 @@ class EventListener implements Listener{
 		$this->plugin = $plugin;
 	}
 
+    /**
+     * @param BlockBreakEvent $event
+     *
+     * @priority MONITOR
+     * @ignoreCancelled true
+     */
 	public function onBreak(BlockBreakEvent $event){
 		$player = $event->getPlayer();
 		$block = $event->getBlock();
