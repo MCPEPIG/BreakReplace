@@ -11,8 +11,8 @@ permissions:
   children:
     breakreplace.command:
       default: op
-      description: "BreakReplace commands"
+      description: "Allow using allBreakReplace commands"
       children:
         breakreplace.command.breakreplace:
-          default: true
+          default: op
           description: "Allow using /breakreplace"
