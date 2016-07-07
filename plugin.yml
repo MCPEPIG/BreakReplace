@@ -3,7 +3,6 @@ main: BreakReplace\Main
 version: 1.0.0 BETA
 api: 2.0.0
 author: MCPEPIG
-load: STARTUP
 
 permissions:
  breakreplace:
