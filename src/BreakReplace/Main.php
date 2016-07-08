@@ -9,7 +9,7 @@ use pocketmine\Player;
 
 class Main extends PluginBase{
 	public $brstatuses;
-	public $brlist
+	public $brlist;
 
 	public function onEnable(){
 		$this->brstatuseslist = new Config($this->getDataFolder() . "br.yml", Config::YAML);
