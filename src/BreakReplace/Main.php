@@ -25,7 +25,7 @@ class Main extends PluginBase{
 
 	public function getBreakReplaceStatus(Player $player){
 		if(!isset($this->breakreplacestatuses[strtolower($player->getName())])) return false;
-		return $this->breakreplacestatuses[strtolower($player->getName())];
+		return true;
 	}
 
 }
