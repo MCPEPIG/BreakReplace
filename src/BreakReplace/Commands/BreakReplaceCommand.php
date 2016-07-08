@@ -23,11 +23,11 @@ class BreakReplaceCommand extends VanillaCommand{
             $sender->sendMessage("§cYou must use the command in-game.");
             return false;
         }
-        if($this->plugin->getBreakReplaceStatus($sender)){
-            $this->plugin->disableBreakReplace($sender);
+        if($this->plugin->getBRStatus($sender)){
+            $this->plugin->disableBR($sender);
             $sender->sendMessage("§aBreakReplace disabled.");
         }else{
-            $this->plugin->enableBreakReplace($sender);
+            $this->plugin->enableBR($sender);
             $sender->sendMessage("§aBreakReplace enabled.");
         }
         return true;
