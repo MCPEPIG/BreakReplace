@@ -13,7 +13,7 @@ class Main extends PluginBase{
 
 	public function onEnable(){
 		$this->brstatuseslist = new Config($this->getDataFolder() . "br.yml", Config::YAML);
-    	$this->getServer()->getCommandMap()->register('breakreplace', new BreakReplaceCommand('breakreplace', $this));
+		$this->getServer()->getCommandMap()->register('breakreplace', new BreakReplaceCommand('breakreplace', $this));
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 		$this->getLogger()->info("Enabled!");
 	}
@@ -31,19 +31,19 @@ class Main extends PluginBase{
         $this->brstatuseslist->save();
     }
 
-	public function enableBR(Player $player){
-		$this->brstatuses[strtolower($player->getName())] = true;
-		$this->saveBRStatuses();
-	}
+    public function enableBR(Player $player){
+    	$this->brstatuses[strtolower($player->getName())] = true;
+    	$this->saveBRStatuses();
+    }
 
-	public function disableBR(Player $player){
-		$this->brstatuses[strtolower($player->getName())] = false;
-		$this->saveBRStatuses();
-	}
+    public function disableBR(Player $player){
+    	$this->brstatuses[strtolower($player->getName())] = false;
+    	$this->saveBRStatuses();
+    }
 
-	public function getBRStatus(Player $player){
-		if(!isset($this->brstatuses[strtolower($player->getName())])) return false;
-		return $this->brstatuses[strtolower($player->getName())];
-	}
+    public function getBRStatus(Player $player){
+    	if(!isset($this->brstatuses[strtolower($player->getName())])) return false;
+    	return $this->brstatuses[strtolower($player->getName())];
+    }
 
 }
