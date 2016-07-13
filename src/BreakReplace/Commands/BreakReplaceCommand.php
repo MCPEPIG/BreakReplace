@@ -7,15 +7,13 @@ use pocketmine\command\CommandSender;
 use pocketmine\Player;
 
 class BreakReplaceCommand extends VanillaCommand{
-	public function __construct($name, $plugin){
-		parent::__construct(
-			$name, "Toggle breakreplace", "/breakreplace"
-		);
-		$this->setPermission("breakreplace.command.breakreplace");
-		$this->plugin = $plugin;
-	}
+    public function __construct($name, $plugin){
+        parent::__construct($name, "Toggle breakreplace", "/breakreplace");
+        $this->setPermission("breakreplace.command.breakreplace");
+        $this->plugin = $plugin;
+    }
 
-	public function execute(CommandSender $sender, $currentAlias, array $args){
+    public function execute(CommandSender $sender, $currentAlias, array $args){
         if(!$this->testPermission($sender)){
             return true;
         }
@@ -31,6 +29,6 @@ class BreakReplaceCommand extends VanillaCommand{
             $sender->sendMessage("§aBreakReplace enabled.");
         }
         return true;
-	}
+    }
 
 }
