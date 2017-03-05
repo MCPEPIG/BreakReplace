@@ -1,5 +1,5 @@
 <?php
-namespace BreakReplace;
+namespace MCPEPIG\BreakReplace;
 
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;

@@ -1,7 +1,7 @@
 <?php
-namespace BreakReplace;
+namespace MCPEPIG\BreakReplace;
 
-use BreakReplace\Commands\BreakReplaceCommand;
+use MCPEPIG\BreakReplace\Commands\BreakReplaceCommand;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\Player;

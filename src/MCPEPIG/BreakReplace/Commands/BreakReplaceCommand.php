@@ -1,5 +1,5 @@
 <?php
-namespace BreakReplace\Commands;
+namespace MCPEPIG\BreakReplace\Commands;
 
 use pocketmine\command\defaults\VanillaCommand;
 use pocketmine\command\CommandSender;
