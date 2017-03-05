@@ -1,11 +1,9 @@
 <?php
 namespace BreakReplace;
 
-use pocketmine\block\Block;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\Listener;
 use pocketmine\item\Item;
-use pocketmine\math\Vector3;
 
 class EventListener implements Listener {
     public function __construct($plugin) {
@@ -15,7 +13,7 @@ class EventListener implements Listener {
     /**
      * @param BlockBreakEvent $event
      *
-     * @priority MONITOR
+     * @priority HIGHEST
      * @ignoreCancelled true
      */
     public function onBreak(BlockBreakEvent $event) {
@@ -23,16 +21,13 @@ class EventListener implements Listener {
         $block = $event->getBlock();
         $item = $event->getItem();
         $drops = $event->getDrops();
-        $vector3 = new Vector3($block->x, $block->y, $block->z);
         if($this->plugin->getBRStatus($player)) {
             if($item->canBePlaced()) {
-                $player->getLevel()->setBlock($vector3, Block::get($item->getId(), $item->getDamage()), true, true);
+                $player->getLevel()->setBlock($block, $item->getBlock(), true, true);
                 if(!$player->isCreative()) {
-                    $player->getInventory()->removeItem(Item::get($item->getId(), $item->getDamage(), 1));
+                    $player->getInventory()->removeItem($item);
                 }
-                foreach($drops as $drop) {
-                    $player->getInventory()->addItem($drop);
-                }
+                $player->getInventory()->addItem(...$drops);
                 $event->setCancelled();
             }
         }
