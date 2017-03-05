@@ -15,7 +15,7 @@ class EventListener implements Listener {
     /**
      * @param BlockBreakEvent $event
      *
-     * @priority MONITOR
+     * @priority HIGHEST
      * @ignoreCancelled true
      */
     public function onBreak(BlockBreakEvent $event) {
@@ -26,13 +26,11 @@ class EventListener implements Listener {
         $vector3 = new Vector3($block->x, $block->y, $block->z);
         if($this->plugin->getBRStatus($player)) {
             if($item->canBePlaced()) {
-                $player->getLevel()->setBlock($vector3, Block::get($item->getId(), $item->getDamage()), true, true);
+                $player->getLevel()->setBlock($vector3, $item->getBlock(), true, true);
                 if(!$player->isCreative()) {
-                    $player->getInventory()->removeItem(Item::get($item->getId(), $item->getDamage(), 1));
+                    $player->getInventory()->removeItem(Item::get($item->getId(), $item->getDamage()));
                 }
-                foreach($drops as $drop) {
-                    $player->getInventory()->addItem($drop);
-                }
+                $player->getInventory()->addItem(...$drops);
                 $event->setCancelled();
             }
         }
